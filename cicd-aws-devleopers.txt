@@ -1,0 +1,274 @@
+CI/CD PROCESS -AWS-DEVELOPERS TOOLS
+_____________________________________
+
+CI AND CD WORKFLOW
+
+WHAT IS CI:
+________________
+
+ SOURCE CODE MANAGEMENT---AWS CODECOMMIT
+ BUILD AUTOMATION----------AWS CODEBUILD
+
+WHAT CD:
+_____________
+
+  CODEDEPLOY
+
+CODEPIPELINE
+
+AWS-DEVELOPERS TOOLS:
+__________________________________
+
+VPC
+EC2
+S3
+SNS
+CLOUDWATCH
+codecommit
+codebuild
+codedeploy
+codepipeline
+IAM
+
+===========================================================================
+
+
+GITLAB,GITHUB,BITBUCKET,SVN,AZUREREPO,CODECOMMIT
+AWS CODECOMMIT:
+_____________________
+
+ IS MANAGED SERVICE 
+
+  NO LIMIT TO STORAGE AND FILE TYPE
+VCS
+
+HA
+
+AZ
+DATA ACCESS AND SECURITY
+
+IAM 
+
+PLAN:
+_________________
+
+
+> LOCAL DEVELOPMENT ENVIRONMENT--DEVELOPER-SOURCE CODE
+     >JAVA WITH SPRING BOOT--RESTAPPLICATION
+     JDK[1.8]
+    >INSTALL-SPRINGIDE-SPRINGTOOLSUITE
+    > DEVELOP THE CODE
+    > START THE SERVER LOCAL DEVLEOPMENT
+    > TEST THE DEVLEOPED RESTAPP
+    > CREATE THE LOCAL REPOSITORY [.GIT]
+    >CHECKIN THE CODE INTO LOCAL REPO
+    > CREATE THE REMOTE REPO--CODE COMMIT   --IAM USER--PERMISSION--POLICIES
+        GIT CREDENTIALS ---HTTPS GIT /SSH GIT 
+    > PUSH THE LOCAL CODE TO CODECOMMIT
+    >VERITY THE COMMIT
+    > BRANCHES
+   >CREAT TEH BRANCHES
+   > COMPARE THE COMMIT BETWEEN DIFF BRANCHES
+   > PULL REQUEST
+   > MERGE
+   > NOTIFICATIONS
+  >TRIGGER
+  > SNS
+  > CORSS  VERIFY THE EMAIL 
+=====================================================================
+IAM user:narasimha
+
+pwd:narasimha@123
+260619151756
+
+
+https://git-codecommit.ap-south-1.amazonaws.com/v1/repos/SpringRestApp
+
+https://git-codecommit.ap-south-1.amazonaws.com/v1/repos/cicdspringproject
+
+HTTPS GIT CREDENTIALS:
+_______________________________
+narasimha-at-260619151756
+
+Yuic4tDsTYP4JdtwQFsEtr6xqEwM3Rcay3gumQMOp0Y=
+
+
+ code star
+  cdebuild
+  code pipeline
+cloud9
+amplify
+cft
+kms
+
+sns
+
+
+=======================================================================
+
+
+
+@RestController
+public class HelloDevopsWorld {
+	@GetMapping("/App")
+	public String deployapp()
+	{
+		return "deploy-restapp-v8";
+	}
+
+}
+
+=============================================================================
+
+
+cicd-in aws-developer tools:
+_________________________
+
+aws codecommit:--- version controlling 
+aws codebuild:------ci/cd---build service
+
+              -----build lifecycle
+                     compile the source code
+                     run the test
+                    generate the package:
+                             jar/war/ear/image
+ 
+it elimanate the need of provisioning  and manage
+   and scale your own build server
+
+peak build requests
+
+
+amc
+cli
+sdk
+api
+pipeline
+
+BUILD file
+build cycle
+build environment
+build types
+build profiles
+custom build
+build logs
+========================================================================
+
+stage1:
+_____________________________
+  create s3 bucket
+             folder
+                     where we keep or store the generates artifacts from the codebuild
+  
+bucket name: cicddemo-cb
+folder name: appBuild
+mumbai
+
+create the build project
+   >local ide environment
+   > let me push the one more time to the new repoistory
+   >   create the code build project
+
+code star--templates
+aws x-ray: monitoring and logging purpose
+aws cloud9-ide
+
+current codecommit project: cicdspringproject
+
+current project in the codebuild project :cicdspringproject-cbproject
+
+
+can genrate the build based on tag or branch
+
+
+buildspecfile:
+Store build commands in a YAML-formatted buildspec file
+
+=========================================================================
+
+ec2
+iam
+vpc
+s3
+codecommit
+codebuild
+sns
+==================================================
+cloudwatch
+codedeploy
+=========================
+
+codepipeline
+==================================================
+
+without this file we cant run and geneate the builds
+
+
+
+build state change
+:
+_______________________
+inprogresss
+s
+success
+or failure
+stopped
+
+phasec change configuration:
+================================
+
+
+
+{
+  "source": [ 
+    "aws.codebuild"
+  ], 
+  "detail-type": [
+    "CodeBuild Build State Change"
+  ],
+  "detail": {
+    "build-status": [
+      "IN_PROGRESS",
+      "SUCCEEDED", 
+      "FAILED",
+      "STOPPED" 
+    ],
+    "project-name": [
+      "cicdspringproject-cbproject"
+    ]
+  }  
+}
+input path
+
+{"build-id":"$.detail.build-id","project-name":"$.detail.project-name","build-status":"$.detail.build-status"}
+
+Input Template
+
+"Build '<build-id>' for build project '<project-name>' has reached the build status of '<build-status>'."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
